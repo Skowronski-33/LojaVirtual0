@@ -15,20 +15,27 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    
+
                     <!-- ADICIONE ESTA LINHA AQUI - LINK PRODUTOS -->
                     <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
                         {{ __('Produtos') }}
                     </x-nav-link>
-                    
+
                     <!-- LINK TYPES -->
                     <x-nav-link :href="route('types.index')" :active="request()->routeIs('types.*')">
                         {{ __('Tipo de Produto') }}
                     </x-nav-link>
 
-                       <x-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">
-        {{ __('Fornecedores') }}
-    </x-nav-link>
+                    <x-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">
+                        {{ __('Fornecedores') }}
+
+
+                        <x-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.*')">
+                            {{ __('Loja') }}
+                        </x-nav-link>
+
+
+                    </x-nav-link>
 
                 </div>
             </div>
@@ -58,7 +65,7 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -81,27 +88,31 @@
 
     <!-- Responsive Navigation Menu -->
     <!-- Responsive Navigation Menu -->
-<div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-    <div class="pt-2 pb-3 space-y-1">
-        <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-            {{ __('Dashboard') }}
-        </x-responsive-nav-link>
-        
-        <!-- ADICIONE ESTA LINHA AQUI TAMBÉM - VERSÃO MOBILE -->
-        <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
-            {{ __('Produtos') }}
-        </x-responsive-nav-link>
-        
-        <!-- LINK TYPES - VERSÃO MOBILE -->
-        <x-responsive-nav-link :href="route('types.index')" :active="request()->routeIs('types.*')">
-            {{ __('Types') }}
-        </x-responsive-nav-link>
+    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                {{ __('Dashboard') }}
+            </x-responsive-nav-link>
 
-        <!-- ADICIONE ESTA LINHA PARA FORNECEDORES - VERSÃO MOBILE -->
-        <x-responsive-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">
-            {{ __('Fornecedores') }}
-        </x-responsive-nav-link>
-    </div>
+            <!-- ADICIONE ESTA LINHA AQUI TAMBÉM - VERSÃO MOBILE -->
+            <x-responsive-nav-link :href="route('products.index')" :active="request()->routeIs('products.*')">
+                {{ __('Produtos') }}
+            </x-responsive-nav-link>
+
+            <!-- LINK TYPES - VERSÃO MOBILE -->
+            <x-responsive-nav-link :href="route('types.index')" :active="request()->routeIs('types.*')">
+                {{ __('Types') }}
+            </x-responsive-nav-link>
+
+            <!-- ADICIONE ESTA LINHA PARA FORNECEDORES - VERSÃO MOBILE -->
+            <x-responsive-nav-link :href="route('suppliers.index')" :active="request()->routeIs('suppliers.*')">
+                {{ __('Fornecedores') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('shop.index')" :active="request()->routeIs('shop.*')">
+                {{ __('Loja') }}
+            </x-responsive-nav-link>
+        </div>
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
@@ -120,7 +131,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                        onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>

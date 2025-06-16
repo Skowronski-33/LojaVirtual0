@@ -1,3 +1,4 @@
+
 <x-guest-layout >
 <p class="text-amber-500 text-lg font-semibold">
         Bem vindo

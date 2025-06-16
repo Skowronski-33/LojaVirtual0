@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\TypesController;
 use App\Http\Controllers\SuppliersController;
 use Illuminate\Support\Facades\Route;
@@ -10,9 +11,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/shop', [ShopController::class, 'index'])->name('shop.index');
+Route::get('/shop/product/{id}', [ShopController::class, 'show'])->name('shop.product');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 // Rotas completas para Products
 Route::get('/products', [ProductsController::class, 'index'])->name('products.index');
