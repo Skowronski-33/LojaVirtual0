@@ -55,44 +55,10 @@
                         </div>
                     @endguest
                 </div>
-
-                <!-- Mobile menu button -->
-                <div class="sm:hidden flex items-center">
-                    <button id="mobile-menu-button" class="text-gray-400 hover:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 p-2 rounded-md">
-                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                            <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
             </div>
         </div>
 
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="sm:hidden hidden">
-            <div class="px-2 pt-2 pb-3 space-y-1 bg-gray-50 dark:bg-gray-800">
-                <a href="{{ route('shop.index') }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
-                    Produtos
-                </a>
-                @guest
-                    <a href="{{ route('login') }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
-                        Entrar
-                    </a>
-                    <a href="{{ route('register') }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
-                        Registrar-se
-                    </a>
-                @else
-                    <a href="{{ route('dashboard') }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
-                        Painel
-                    </a>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <button type="submit" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium w-full text-left">
-                            Sair
-                        </button>
-                    </form>
-                @endguest
-            </div>
-        </div>
+        
     </nav>
 
     <!-- Page Content -->
@@ -108,13 +74,5 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
 </body>
 </html>
